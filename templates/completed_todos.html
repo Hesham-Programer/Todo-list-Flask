@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="" method="post">
+    <div>
+      <button name="completed">Completed Todo</button>
+      <button name="home">Home</button>
+    </div>
+    <ol>
+      {% for todo in completed_todos %}
+        <li>
+          <div>
+            <span>{{ todo }}</span>
+            <button name="done" type="submit" value="{{ todo }}">✔️</button>
+            <span>{{ formatted_time }}</span>
+          </div>
+        </li>
+      {% endfor %}
+      </ol>
+  </form>
+</body>
+
+</html>

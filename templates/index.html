@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+  <form action="" method="post">
+    <div>
+      <button name="completed">Completed Todo</button>
+      <button name="home">Home</button>
+    </div>
+    <input name="todo-input" type="text" placeholder="add the name of the todo">
+    <button type="submit" name="add">add</button>
+    <ol>
+      {% for todo in todos %}
+        <li>
+          <div>
+            <span>{{ todo }}</span>
+            <button name="delete" value="{{ todo }}"> delete </button>
+            <button name="done" type="submit" value="{{ todo }}">✔️</button>
+            <button name="edit" type="submit" value="{{ todo }}">edit</button>
+          </div>
+        </li>
+      {% endfor %}
+      </ol>
+  </form>
+</body>
+</html>
