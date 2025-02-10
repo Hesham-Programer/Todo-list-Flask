@@ -4,27 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <form action="" method="post">
-    <div>
-      <button name="completed">Completed Todo</button>
-      <button name="home">Home</button>
-    </div>
-    <input name="todo-input" type="text" placeholder="add the name of the todo">
-    <button type="submit" name="add">add</button>
-    <ol>
-      {% for todo in todos %}
-        <li>
-          <div>
+  <div class="container mt-5">
+    <form action="" method="post">
+      <div class="form-group">
+        <button class="btn btn-primary" name="completed">Completed Todo</button>
+        <button class="btn btn-secondary" name="home">Home</button>
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="todo-input" type="text" placeholder="Add the name of the todo">
+      </div>
+      <button class="btn btn-success" type="submit" name="add">Add</button>
+      <ol class="list-group mt-3">
+        {% for todo in todos %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
             <span>{{ todo }}</span>
-            <button name="delete" value="{{ todo }}"> delete </button>
-            <button name="done" type="submit" value="{{ todo }}">✔️</button>
-            <button name="edit" type="submit" value="{{ todo }}">edit</button>
-          </div>
-        </li>
-      {% endfor %}
+            <div>
+              <button class="btn btn-danger btn-sm" name="delete" value="{{ todo }}">Delete</button>
+              <button class="btn btn-success btn-sm" name="done" type="submit" value="{{ todo }}">✔️</button>
+              <button class="btn btn-warning btn-sm" name="edit" type="submit" value="{{ todo }}">Edit</button>
+            </div>
+          </li>
+        {% endfor %}
       </ol>
-  </form>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
